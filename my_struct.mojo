@@ -14,6 +14,11 @@ struct MyPair:
     fn __init__(inout self, first: Int, second: Int):
         self.first = first
         self.second = second
+
+
+    @staticmethod
+    fn print():
+        print("MyPair")
     
     fn dump(self):
         print(self.first, self.second)
@@ -44,4 +49,5 @@ fn main():
     mine.dump()
     let arr = HeapArray(10, 42)
     arr.dump()
+    MyPair.print()
 

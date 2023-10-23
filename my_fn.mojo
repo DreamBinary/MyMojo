@@ -1,17 +1,3 @@
-fn main():
-    var a = 2
-    var b = 3
-    print(add(x=2))
-    print(add(x=2, y=3))
-    # print(add_inout(x = 2, y = 3)) error
-    print(add_inout(x=a, y=b))
-    # print(test(), "test", sep="----")
-    let s = "Hello"
-    let ss = set_file(text=s ^)  # ^ ==>> destroy s
-    # print(s)
-    print(ss)
-
-
 # def ls_test():
 # 	let ls = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # 	print(type(ls))
@@ -42,3 +28,39 @@ fn add_inout(inout x: Int, inout y: Int) -> Int:
 fn set_file(owned text: String) -> String:
     text += "🔥"
     return text
+
+
+fn foo[a: Int = 3, msg: StringLiteral = "woof"]():
+    print(msg, a)
+
+
+fn fooo[a: Int = 3, msg: StringLiteral = "woof"](b: Int = 4):
+    print(msg, a, b)
+
+
+# Inferred parameter values take precedence over defaults:
+fn foooo[a: Int = 3, msg: StringLiteral = "woof"](b: Int = a):
+    print(msg, a, b)
+
+
+fn main():
+    # var a = 2
+    # var b = 3
+    # print(add(x=2))
+    # print(add(x=2, y=3))
+    # # print(add_inout(x = 2, y = 3)) error
+    # print(add_inout(x=a, y=b))
+    # # print(test(), "test", sep="----")
+    # let s = "Hello"
+    # let ss = set_file(text=s ^)  # ^ ==>> destroy s
+    # # print(s)
+    # print(ss)
+    foo()
+    foo[5]()
+    foo[msg="meow"]()
+    fooo()
+    fooo[5]()
+    fooo[msg="meow"]()
+    fooo(b=6)
+    foooo[5]()
+    foooo[5](50)
