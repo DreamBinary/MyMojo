@@ -3,6 +3,7 @@ The default model for working with values is they live in memory, so they have a
 """
 # To solve this, Mojo allows structs to opt-in to being passed in a register instead of passing through memory with the @register_passable decorator. 
 
+
 @value
 @register_passable("trivial")
 struct Pet:
